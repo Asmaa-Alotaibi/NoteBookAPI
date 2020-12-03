@@ -1,0 +1,14 @@
+{
+  "name": "NoteBookAPI",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/Asmaa-Alotaibi/NoteBookAPI.git",
+  "author": "Asmaa-Alotaibi <asmaa-otaibi@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
