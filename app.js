@@ -6,6 +6,7 @@ const path = require("path");
 
 //shortcut p1
 const noteBookRoutes = require("./routes/notebooks");
+const noteRoutes = require("./routes/notes");
 const app = express();
 
 //middlewere
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 
 //Routes
 app.use("/notebooks", noteBookRoutes);
+app.use("/notes", noteRoutes);
 
 app.use((req, res, next) => {
   console.log("Path dosn't exist");
@@ -35,7 +37,7 @@ app.get("/", (req, res) => {
 
 const run = async () => {
   try {
-    await db.sequelize.sync();
+    await db.sequelize.sync({ alter: true });
     console.log("Connection to the database successful!");
     await app.listen(8000, () => {
       console.log("The application is running on localhost:8000");

@@ -4,6 +4,7 @@ const {
   noteBookList,
   creatNoteBook,
   fetchNoteBook,
+  creatNote,
 } = require("../controllers/noteBookController");
 
 router.param("noteBookId", async (req, res, next, noteBookId) => {
@@ -23,5 +24,7 @@ router.param("noteBookId", async (req, res, next, noteBookId) => {
 router.get("/", noteBookList);
 
 router.post("/", creatNoteBook);
+
+router.post("/:noteBookId/notes", creatNote);
 
 module.exports = router;

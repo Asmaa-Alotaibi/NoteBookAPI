@@ -1,4 +1,4 @@
-const { NoteBook } = require("../db/models");
+const { NoteBook, Note } = require("../db/models");
 
 //normal func noit mw
 exports.fetchNoteBook = async (productId, next) => {
@@ -30,10 +30,20 @@ exports.noteBookList = async (req, res, next) => {
 
 exports.creatNoteBook = async (req, res, next) => {
   try {
-    //req.body.storeId this is the relation cell
-    req.body.notBookId = req.params.notBookId;
     const newNoteBook = await NoteBook.create(req.body);
     res.status(201).json(newNoteBook);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.creatNote = async (req, res, next) => {
+  try {
+    //req.body.storeId this is the relation cell
+    req.body.noteBookId = req.params.noteBookId;
+
+    const newNote = await Note.create(req.body);
+    res.status(201).json(newNote);
   } catch (error) {
     next(error);
   }
