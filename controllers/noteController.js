@@ -1,4 +1,4 @@
-const { Note } = require("../db/models");
+const { Note, NoteBook } = require("../db/models");
 
 //normal func noit mw
 exports.fetchNote = async (noteId, next) => {
@@ -12,17 +12,17 @@ exports.fetchNote = async (noteId, next) => {
 
 exports.noteList = async (req, res, next) => {
   try {
-    const note = await Note.findAll({
+    const notes = await Note.findAll({
       attributes: { exclude: ["createdAt", "updatedAt"] },
-      include: [
-        {
-          model: NoteBook,
-          as: "Notebook",
-          attributes: ["id"],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: NoteBook,
+      //     as: "notebooks",
+      //     attributes: ["id"],
+      //   },
+      // ],
     });
-    res.json(note);
+    res.json(notes);
   } catch (error) {
     next(error);
   }

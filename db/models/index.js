@@ -49,7 +49,7 @@ db.NoteBook.hasMany(db.Note, {
 });
 
 db.Note.belongsTo(db.NoteBook, {
-  as: "NoteBooks",
+  as: "noteBooks",
   foreignKey: { fieldName: "noteBookId" },
 });
 ////

@@ -14,13 +14,13 @@ exports.noteBookList = async (req, res, next) => {
   try {
     const noteBooks = await NoteBook.findAll({
       attributes: { exclude: ["createdAt", "updatedAt"] },
-      //   include: [
-      //     {
-      //       model: Store,
-      //       as: "stores",
-      //       attributes: ["id"],
-      //     },
-      //   ],
+      include: [
+        {
+          model: Note,
+          as: "notes",
+          attributes: ["id"],
+        },
+      ],
     });
     res.json(noteBooks);
   } catch (error) {
