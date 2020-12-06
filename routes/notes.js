@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { noteList, fetchNote } = require("../controllers/noteController");
+const {
+  noteList,
+  fetchNote,
+  updateNote,
+} = require("../controllers/noteController");
 
 router.param("noteId", async (req, res, next, noteId) => {
   const note = await fetchNote(noteId, next);
@@ -18,4 +22,5 @@ router.param("noteId", async (req, res, next, noteId) => {
 
 router.get("/", noteList);
 
+router.put("/:noteId", updateNote);
 module.exports = router;

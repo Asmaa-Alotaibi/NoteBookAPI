@@ -27,3 +27,12 @@ exports.noteList = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.updateNote = async (req, res, next) => {
+  try {
+    await req.note.update(req.body);
+    res.status(204).end();
+  } catch (error) {
+    next(error);
+  }
+};

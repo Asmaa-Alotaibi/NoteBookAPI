@@ -1,12 +1,13 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "notebook_db",
+    "username": "lmrabiah",
+    "password": null,
+    "database": "noteBook_db",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
   },
+
   "test": {
     "username": "root",
     "password": null,
